@@ -1,117 +1,86 @@
-package com.training;
+/*package whatever //do not write package name here */
 
-public class StackCustom {
+import java.io.*;
 
-	int size;	int arr[];
+public class Stack{
+    int size;
+    int[]arr;
+    int top;
+    
+    Stack(int size){
+        this.size=size;
+        this.arr=new int[size];
+        this.top=-1;
+    }
+    
+    public void push(int element){
+        if(!isFull()){
+            top++;
+            
+            arr[top]=element;
+            
+        }
+        
+        else{
+            System.out.println("Stack is Full");
+            
+        }
+        
+    }
+    
+    public int  pop(){
+        
+        if(!isEmpty()){
+            int returnTop=top;
+            top--;
+            
+            return arr[returnTop];
+            
+        }
+        else{
+            return -1;
+            
+            
+        }
+        
+    
+    }
+    public int peek(){
+        
+        if(!isEmpty()){
+            return arr[top];
+            
+        }
+        else{
+            return -1;
+        }
+        
+    }
+  
+    
+    public boolean isFull(){
+        return (size-1==top);
+    }
+    
+    public boolean isEmpty(){
+        return (top==-1);
+    }
+    
 
-	int top;
+	public static void main (String[] args) {
+	
+	Stack st= new Stack(5);
+	
+	st.push(6);
+	st.push(8);
+	st.push(7);
+	
+	st.pop();
+	st.pop();
+	st.pop();
+	
+System.out.println(st.peek());
 
-	StackCustom(int size) {
-
-		this.size = size;
-
-		this.arr = new int[size];
-
-		this.top = -1;
-
-	}
-
-	public void push(int pushedElement) {
-
-		if (!isFull()) {
-
-			top++;
-
-			arr[top] = pushedElement;
-
-			System.out.println("Pushed element:" + pushedElement);
-
-		} else {
-
-			System.out.println("Stack is full !");
-
-		}
-
-	}
-
-	public int pop() {
-
-		if (!isEmpty()) {
-
-			int returnedTop = top;
-
-			top--;
-
-			System.out.println("Popped element :" + arr[returnedTop]);
-
-			return arr[returnedTop];
-
-		} else {
-
-			System.out.println("Stack is empty !");
-
-			return -1;
-
-		}
-
-	}
-
-	public int peek() {
-
-		if (!this.isEmpty())
-
-			return arr[top];
-
-		else {
-
-			System.out.println("Stack is Empty");
-
-			return -1;
-
-		}
-
-	}
-
-	public boolean isEmpty() {
-
-		return (top == -1);
-
-	}
-
-	public boolean isFull() {
-
-		return (size - 1 == top);
-
-	}
-
-	public static void main(String[] args) {
-
-		StackCustom StackCustom = new StackCustom(10);
-
-		StackCustom.pop();
-
-		System.out.println("=================");
-
-		StackCustom.push(10);
-
-		StackCustom.push(30);
-
-		StackCustom.push(50);
-
-		StackCustom.push(40);
-
-		System.out.println("=================");
-
-		StackCustom.pop();
-
-		StackCustom.pop();
-
-		StackCustom.pop();
-
-		System.out.println("=================");
-
-		
 
 	}
-
 }
