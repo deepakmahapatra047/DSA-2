@@ -1,0 +1,29 @@
+    public static Node del(Node head,int k){
+        
+        Node fast=head;
+        Node slow=head;
+        
+     for(int i=0;i<k;i++){
+         fast=fast.next;
+         
+     }
+     
+     if(fast==null){
+         slow=slow.next;
+         head=slow;
+         return head;
+     }
+     
+     while(fast!=null && fast.next!=null){
+         fast=fast.next;
+         slow=slow.next;
+         
+     }
+     
+     slow.next=slow.next.next;
+     
+     return head;
+        
+        
+        
+    }
