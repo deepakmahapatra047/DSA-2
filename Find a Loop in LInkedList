@@ -1,0 +1,83 @@
+/*package whatever //do not write package name here */
+
+import java.io.*;
+import java.util.*;
+class Node {
+    
+    int data;
+    Node next;
+    
+    Node(int data){
+        this.data=data;
+        this.next=next;
+    }
+    
+    public static void detectLoop(Node head){
+        Node slow=head;
+        Node fast=head;
+        
+        int flag=0;
+        
+        while(slow!=null && fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+            
+            if(slow==fast){
+                flag=1;
+                break;
+            }
+            
+        }
+        
+        if(flag==1){
+            System.out.println("Loop found");
+        }
+        else{
+            System.out.println("Loop not Found");
+        }
+        
+        
+    }
+    
+  
+	public static void main (String[] args) {
+	
+	Scanner sc=new Scanner(System.in);
+	 
+	 Node head=null;
+	 Node curr=head;
+	 
+	 int element=sc.nextInt();
+	 
+	 while(element!=-1){
+	     Node n= new Node(element);
+	     
+	     if(head==null){
+	         head=n;
+	     }
+	     else{
+	        curr.next=n; 
+	         
+	     }
+	     
+	     curr=n;
+	     element=sc.nextInt();
+	     
+	 }
+
+	Node temp=head;
+	
+	while(temp!=null){
+	    System.out.print(temp.data+" ");
+	    temp=temp.next;
+	}
+	
+	Node n=head;
+	
+
+  
+  n.detectLoop(head);
+
+
+	}
+}
