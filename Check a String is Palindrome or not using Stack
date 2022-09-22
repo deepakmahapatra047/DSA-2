@@ -1,0 +1,32 @@
+/*package whatever //do not write package name here */
+
+import java.io.*;
+import java.util.*;
+class GFG {
+	public static void main (String[] args) {
+	
+	Stack<Character> st=new Stack<>();
+     
+     
+    String s="madam";
+    
+    for(int i=0;i<s.length();i++){
+        st.push(s.charAt(i));
+    }
+    
+    String ans="";
+    
+    while(!st.isEmpty()){
+       ans+=st.pop(); 
+    }
+    
+    if(ans.equals(s)){
+        System.out.println("String is Palindrome");
+    }
+    else{
+        System.out.println("not");
+    }
+	
+
+	}
+}
